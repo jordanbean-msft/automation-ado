@@ -27,3 +27,41 @@ stages:
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
                 resourceGroupName: ${{ variables.devResourceGroupName }}
+  - stage: Deploy to Stg
+    jobs:
+    - deployment: Stg
+      pool:
+        vmImage: windows-latest
+      environment: ${{ variables.stgEnvironmentName }}
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - template: deploy-infrastructure.yml
+              parameters:
+                azureServiceConnection: ${{ variables.serviceConnectionName }}
+                resourceGroupName: ${{ variables.stgResourceGroupName }}
+                environmentName: ${{ variables.stgEnvironmentName }}
+            - template: deploy-runbooks.yml
+              parameters:
+                azureServiceConnection: ${{ variables.serviceConnectionName }}
+                resourceGroupName: ${{ variables.stgResourceGroupName }}
+  - stage: Deploy to Prd 
+    jobs:
+    - deployment: Prd
+      pool:
+        vmImage: windows-latest
+      environment: ${{ variables.prdEnvironmentName }}
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - template: deploy-infrastructure.yml
+              parameters:
+                azureServiceConnection: ${{ variables.serviceConnectionName }}
+                resourceGroupName: ${{ variables.prdResourceGroupName }}
+                environmentName: ${{ variables.prdEnvironmentName }}
+            - template: deploy-runbooks.yml
+              parameters:
+                azureServiceConnection: ${{ variables.serviceConnectionName }}
+                resourceGroupName: ${{ variables.prdResourceGroupName }}

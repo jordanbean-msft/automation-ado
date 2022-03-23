@@ -8,7 +8,8 @@ stages:
   - stage: Build 
     jobs:
       - job: Build
-        pool: windows-latest
+        pool: 
+          vmImage: windows-latest
         steps:
           - task: CopyFiles@2
             displayName: Copy Runbooks to Artifact directory
