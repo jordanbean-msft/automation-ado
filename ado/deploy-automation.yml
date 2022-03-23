@@ -1,12 +1,18 @@
 name: Deploy Automation
+
 variables:
   - template: env/global.parameters.yml
   - template: env/dev.parameters.yml
   - template: env/stg.parameters.yml
   - template: env/prd.parameters.yml
   - template: variables.yml
-trigger:
-  - main
+
+resources:
+  pipelines:
+    - pipeline: build-automation
+      source: build-automation
+      trigger: true
+
 stages:
   - stage: Deploy to Dev 
     jobs:

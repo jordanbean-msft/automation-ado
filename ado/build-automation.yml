@@ -1,9 +1,12 @@
 name: Build Automation
+
 variables:
   - template: env/global.parameters.yml
   - template: variables.yml
+
 trigger:
   - main
+  
 stages:
   - stage: Build 
     jobs:
