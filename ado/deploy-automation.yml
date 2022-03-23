@@ -1,9 +1,9 @@
 name: Deploy Automation
 variables:
-  - template: ../env/global.parameters.yml
-  - template: ../env/dev.parameters.yml
-  - template: ../env/stg.parameters.yml
-  - template: ../env/prd.parameters.yml
+  - template: env/global.parameters.yml
+  - template: env/dev.parameters.yml
+  - template: env/stg.parameters.yml
+  - template: env/prd.parameters.yml
   - template: variables.yml
 trigger:
   - main
