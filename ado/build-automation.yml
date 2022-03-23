@@ -20,4 +20,4 @@ stages:
             displayName: Publish Runbooks as Artifact
             inputs:
               targetPath: $(Build.ArtifactStagingDirectory)
-              artifactName: 'runbooks-$(Get-Date -Format yyyyMMddhhmmss)-$(Build.BuildId)'
+              artifactName: 'runbooks-$(Build.BuildId)'
