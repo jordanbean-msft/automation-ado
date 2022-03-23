@@ -14,7 +14,7 @@ resources:
       trigger: true
 
 stages:
-  - stage: Deploy to Dev 
+  - stage: Deploy_to_Dev 
     jobs:
     - deployment: Dev
       pool:
@@ -33,7 +33,7 @@ stages:
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
                 resourceGroupName: ${{ variables.devResourceGroupName }}
-  - stage: Deploy to Stg
+  - stage: Deploy_to_Stg
     jobs:
     - deployment: Stg
       pool:
@@ -52,7 +52,7 @@ stages:
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
                 resourceGroupName: ${{ variables.stgResourceGroupName }}
-  - stage: Deploy to Prd 
+  - stage: Deploy_to_Prd 
     jobs:
     - deployment: Prd
       pool:
