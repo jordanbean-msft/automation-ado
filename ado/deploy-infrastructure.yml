@@ -1,0 +1,29 @@
+parameters:
+  - name: azureServiceConnection
+  - name: resourceGroupName
+  - name: environmentName
+
+steps:
+  - checkout: self
+    persistCredentials: true
+  - template: print-env.yml
+  - task: AzureResourceGroupDeployment@2
+    displayName: Deploy Azure Automation account
+    inputs:
+      azureSubscription: ${{ parameters.azureServiceConnection }}
+      resourceGroupName: ${{ parameters.resourceGroupName }}
+      csmFile: ${{ variables.pathToInfrastructureDirectory }}/main.bicep
+      csmParametersFile: ${{ variables.pathToInfrastructureDirectory }}/env/${{ parameters.environmentName }}.parameters.json
+  - task: AzurePowerShell@5
+    displayName: Setup Source Control link between Automation Account and Azure DevOps Git repo
+    inputs:
+      azureSubscription: ${{ parameters.azureServiceConnection }}
+      ScriptType: FilePath
+      azurePowerShellVersion: latestVersion
+      ScriptPath: setup-source-control-link.ps1
+      ScriptArguments: 
+        -ResourceGroupName ${{ parameters.resourceGroupName }}
+        -AdoAccountName ${{ variables.adoAccountName }}
+        -RepositoryName ${{ variables.adoRepositoryName }}
+        -PathToRunbooks ${{ variables.pathToRunbooksDirectory }}
+        -AdoPat ${{ variables.adoPath }}

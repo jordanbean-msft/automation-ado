@@ -1,0 +1,3 @@
+variables:
+  prdEnvironmentName: prd
+  prdResourceGroupName: rg-automationAdo-ussc-prd

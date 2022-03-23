@@ -1,0 +1,5 @@
+variables:
+  pathToAdoDirectory: $(System.DefaultWorkingDirectory)/ado
+  pathToInfrastructureDirectory: $(System.DefaultWorkingDirectory)/infra
+  pathToRunbooksDirectory: $(System.DefaultWorkingDirectory)/runbooks
+  pathToInfrastructureEnvironmentDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}/env

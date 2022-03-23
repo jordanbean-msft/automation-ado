@@ -1,0 +1,22 @@
+name: Build Automation
+variables:
+  - template: ../env/global.parameters.yml
+  - template: variables.yml
+trigger:
+  - main
+stages:
+  - stage: Build 
+    jobs:
+      - job: Build
+        pool: windows-latest
+        steps:
+          - task: CopyFiles@2
+            displayName: Copy Runbooks to Artifact directory
+            inputs:
+              SourceFolder: ${{ variables.pathToRunbooksDirectory }}
+              TargetFolder: $(Build.ArtifactStagingDirectory)
+          - task: PublishPipelineArtifact@1
+            displayName: Publish Runbooks as Artifact
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)
+              artifactName: 'runbooks-$(Get-Date -Format yyyyMMddhhmmss)-$(Build.BuildId)'

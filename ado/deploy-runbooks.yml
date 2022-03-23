@@ -1,0 +1,17 @@
+parameters:
+  - name: azureServiceConnection
+  - name: resourceGroupName
+
+steps:
+  - checkout: self
+    persistCredentials: true
+  - template: print-env.yml
+  - task: AzurePowerShell@5
+    displayName: Deploy Runbooks to Azure Automation
+    inputs:
+      azureSubscription: ${{ parameters.azureServiceConnection }}
+      scriptType: FilePath
+      scriptPath: deploy-runbooks.ps1
+      scriptArguments:
+        -ResourceGroupName ${{ parameters.resourceGroupName }}
+      azurePowerShellVersion: latestVersion

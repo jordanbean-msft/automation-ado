@@ -1,0 +1,29 @@
+name: Deploy Automation
+variables:
+  - template: ../env/global.parameters.yml
+  - template: ../env/dev.parameters.yml
+  - template: ../env/stg.parameters.yml
+  - template: ../env/prd.parameters.yml
+  - template: variables.yml
+trigger:
+  - main
+stages:
+  - stage: Deploy to Dev 
+    jobs:
+    - deployment: Dev
+      pool:
+        vmImage: windows-latest
+      environment: ${{ variables.devEnvironmentName }}
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - template: deploy-infrastructure.yml
+              parameters:
+                azureServiceConnection: ${{ variables.serviceConnectionName }}
+                resourceGroupName: ${{ variables.devResourceGroupName }}
+                environmentName: ${{ variables.devEnvironmentName }}
+            - template: deploy-runbooks.yml
+              parameters:
+                azureServiceConnection: ${{ variables.serviceConnectionName }}
+                resourceGroupName: ${{ variables.devResourceGroupName }}
