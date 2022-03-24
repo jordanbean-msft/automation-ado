@@ -9,11 +9,8 @@ variables:
     parameters:
       adoRepositoryName: ${{ variables.adoRepositoryName }}
 
-resources:
-  pipelines:
-    - pipeline: build-automation
-      source: build-automation
-      trigger: true
+trigger:
+  - main
 
 stages:
   - stage: Deploy_to_Dev 
