@@ -4,6 +4,10 @@ This demo shows how to set up an Azure DevOps Continuous Deployment (CD) pipelin
 
 ![adoPipeline](.img/adoPipeline.png)
 
+## Disclaimer
+
+**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.**
+
 ## Deployment
 
 1.  Clone the repo & upload into your own Azure DevOps instance.
@@ -49,3 +53,9 @@ You can now see the Azure Automation Source Control link & Runbook sync job comp
 ![vsoGit](.img/vsoGit.png)
 
 ![syncJobCompleted](.img/syncJobCompleted.png)
+
+## References
+
+- https://docs.microsoft.com/en-us/azure/automation/
+- https://docs.microsoft.com/en-us/azure/automation/source-control-integration
+- https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines
