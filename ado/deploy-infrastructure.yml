@@ -2,6 +2,11 @@ parameters:
   - name: azureServiceConnection
   - name: resourceGroupName
   - name: environmentName
+  - name: pathToInfrastructureDirectory
+  - name: adoAccountName
+  - name: adoRepositoryName
+  - name: pathToRunbooksDirectory
+  - name: adoPat
 
 steps:
   - checkout: self
@@ -12,8 +17,8 @@ steps:
     inputs:
       azureSubscription: ${{ parameters.azureServiceConnection }}
       resourceGroupName: ${{ parameters.resourceGroupName }}
-      csmFile: ${{ variables.pathToInfrastructureDirectory }}/main.bicep
-      csmParametersFile: ${{ variables.pathToInfrastructureDirectory }}/env/${{ parameters.environmentName }}.parameters.json
+      csmFile: ${{ parameters.pathToInfrastructureDirectory }}/main.bicep
+      csmParametersFile: ${{ parameters.pathToInfrastructureDirectory }}/env/${{ parameters.environmentName }}.parameters.json
   - task: AzurePowerShell@5
     displayName: Setup Source Control link between Automation Account and Azure DevOps Git repo
     inputs:
@@ -23,7 +28,7 @@ steps:
       ScriptPath: setup-source-control-link.ps1
       ScriptArguments: 
         -ResourceGroupName ${{ parameters.resourceGroupName }}
-        -AdoAccountName ${{ variables.adoAccountName }}
-        -RepositoryName ${{ variables.adoRepositoryName }}
-        -PathToRunbooks ${{ variables.pathToRunbooksDirectory }}
-        -AdoPat ${{ variables.adoPath }}
+        -AdoAccountName ${{ parameters.adoAccountName }}
+        -RepositoryName ${{ parameters.adoRepositoryName }}
+        -PathToRunbooks ${{ parameters.pathToRunbooksDirectory }}
+        -AdoPat ${{ parameters.adoPat }}
