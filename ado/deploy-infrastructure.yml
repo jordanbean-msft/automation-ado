@@ -17,6 +17,7 @@ steps:
     inputs:
       azureSubscription: ${{ parameters.azureServiceConnection }}
       scriptType: ps
+      scriptLocation: inlineScript
       inlineScript:  |
         az bicep build -f ${{ parameters.pathToInfrastructureDirectory }}/main.bicep
   - task: AzureResourceGroupDeployment@2
