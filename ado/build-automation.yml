@@ -3,6 +3,8 @@ name: Build Automation
 variables:
   - template: env/global.parameters.yml
   - template: variables.yml
+    parameters:
+      adoAccountName: ${{ variables.adoAccountName }}
 
 trigger:
   - main

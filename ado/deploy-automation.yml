@@ -6,6 +6,8 @@ variables:
   - template: env/stg.parameters.yml
   - template: env/prd.parameters.yml
   - template: variables.yml
+    parameters:
+      adoAccountName: ${{ variables.adoAccountName }}
 
 resources:
   pipelines:

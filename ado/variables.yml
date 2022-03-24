@@ -1,5 +1,8 @@
+parameters:
+  - name: adoAccountName
+
 variables:
-  pathToAdoDirectory: $(System.DefaultWorkingDirectory)/ado
-  pathToInfrastructureDirectory: $(System.DefaultWorkingDirectory)/infra
-  pathToRunbooksDirectory: $(System.DefaultWorkingDirectory)/runbooks
-  pathToInfrastructureEnvironmentDirectory: $(System.DefaultWorkingDirectory)/infra/env
+  pathToAdoDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.adoAccountName }}/ado
+  pathToInfrastructureDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.adoAccountName }}/infra
+  pathToRunbooksDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.adoAccountName }}/runbooks
+  pathToInfrastructureEnvironmentDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.adoAccountName }}/infra/env
