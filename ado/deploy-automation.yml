@@ -40,7 +40,7 @@ stages:
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
                 resourceGroupName: ${{ variables.devResourceGroupName }}
-                pathToInfrastructureDirectory: ${{ variables.pathToInfrastructureDirectory }}
+                pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}
   - stage: Deploy_to_Stg
     jobs:
     - deployment: Stg
@@ -65,7 +65,7 @@ stages:
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
                 resourceGroupName: ${{ variables.stgResourceGroupName }}
-                pathToInfrastructureDirectory: ${{ variables.pathToInfrastructureDirectory }}
+                pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}
   - stage: Deploy_to_Prd 
     jobs:
     - deployment: Prd
@@ -90,4 +90,4 @@ stages:
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
                 resourceGroupName: ${{ variables.prdResourceGroupName }}
-                pathToInfrastructureDirectory: ${{ variables.pathToInfrastructureDirectory }}
+                pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}

@@ -1,7 +1,7 @@
 parameters:
   - name: azureServiceConnection
   - name: resourceGroupName
-  - name: pathToInfrastructureDirectory
+  - name: pathToAdoDirectory
 
 steps:
   - checkout: self
@@ -12,7 +12,7 @@ steps:
     inputs:
       azureSubscription: ${{ parameters.azureServiceConnection }}
       scriptType: FilePath
-      scriptPath: ${{ parameters.pathToInfrastructureDirectory }}/deploy-runbooks.ps1
+      scriptPath: ${{ parameters.pathToAdoDirectory }}/deploy-runbooks.ps1
       scriptArguments:
         -ResourceGroupName ${{ parameters.resourceGroupName }}
       azurePowerShellVersion: latestVersion
