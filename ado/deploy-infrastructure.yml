@@ -7,6 +7,7 @@ parameters:
   - name: adoRepositoryName
   - name: pathToRunbooksDirectory
   - name: adoPat
+  - name: pathToAdoDirectory
 
 steps:
   - checkout: self
@@ -33,7 +34,7 @@ steps:
       azureSubscription: ${{ parameters.azureServiceConnection }}
       ScriptType: FilePath
       azurePowerShellVersion: latestVersion
-      ScriptPath: ${{ parameters.pathToInfrastructureDirectory }}/setup-source-control-link.ps1
+      ScriptPath: ${{ parameters.pathToAdoDirectory }}/setup-source-control-link.ps1
       ScriptArguments: 
         -ResourceGroupName ${{ parameters.resourceGroupName }}
         -AdoAccountName ${{ parameters.adoAccountName }}
