@@ -5,7 +5,7 @@ param (
     [Parameter(Mandatory=$true)][String]$AdoAccountName,
     [Parameter(Mandatory=$true)][String]$RepositoryName,
     [Parameter(Mandatory=$true)][String]$PathToRunbooks,
-    [Parameter(Mandatory=$true)][SecureString]$AdoPat
+    [Parameter(Mandatory=$true)][String]$AdoPat
 )
 
 $errorActionPreference = "stop"
@@ -19,10 +19,12 @@ if(!$automationAccountName) {
   throw 'Unable to find Automation Account in $ResourceGroupName'
 }
 
+$adoPathSecureString = ConvertTo-SecureString -String $AdoPat -AsPlainText -Force
+
 New-AzAutomationSourceControl -Name SCReposGit `
                               -RepoUrl https://dev.azure.com/$AdoAccountName/_git/$RepositoryName `
                               -SourceType $SourceControlType `
-                              -AccessToken $AdoPat `
+                              -AccessToken $adoPathSecureString `
                               -Branch $SourceControlBranch `
                               -ResourceGroupName $ResourceGroupName `
                               -AutomationAccountName $automationAccountName `
