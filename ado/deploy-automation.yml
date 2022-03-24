@@ -7,7 +7,7 @@ variables:
   - template: env/prd.parameters.yml
   - template: variables.yml
     parameters:
-      adoAccountName: ${{ variables.adoAccountName }}
+      adoRepositoryName: ${{ variables.adoRepositoryName }}
 
 resources:
   pipelines:

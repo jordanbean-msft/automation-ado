@@ -4,7 +4,7 @@ variables:
   - template: env/global.parameters.yml
   - template: variables.yml
     parameters:
-      adoAccountName: ${{ variables.adoAccountName }}
+      adoRepositoryName: ${{ variables.adoRepositoryName }}
 
 trigger:
   - main
