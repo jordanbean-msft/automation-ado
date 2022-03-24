@@ -2,6 +2,8 @@
 
 This demo shows how to set up an Azure DevOps Continuous Deployment (CD) pipeline for deploying an Azure Automation account & associated Runbooks.
 
+![adoPipeline](.img/adoPipeline.png)
+
 ## Deployment
 
 1.  Clone the repo & upload into your own Azure DevOps instance.
