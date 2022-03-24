@@ -33,7 +33,7 @@ steps:
       azureSubscription: ${{ parameters.azureServiceConnection }}
       ScriptType: FilePath
       azurePowerShellVersion: latestVersion
-      ScriptPath: setup-source-control-link.ps1
+      ScriptPath: ${{ parameters.pathToInfrastructureDirectory }}/setup-source-control-link.ps1
       ScriptArguments: 
         -ResourceGroupName ${{ parameters.resourceGroupName }}
         -AdoAccountName ${{ parameters.adoAccountName }}
