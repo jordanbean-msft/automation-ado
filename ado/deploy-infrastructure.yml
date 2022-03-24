@@ -12,12 +12,19 @@ steps:
   - checkout: self
     persistCredentials: true
   - template: print-env.yml
+  - task: AzureCLI@2
+    displayName: Compile Bicep to ARM
+    inputs:
+      azureSubscription: ${{ parameters.azureServiceConnecdtion }}
+      scriptType: ps
+      inlineScript:  |
+        az bicep build -f ${{ parameters.pathToInfrastructureDirectory }}/main.bicep
   - task: AzureResourceGroupDeployment@2
     displayName: Deploy Azure Automation account
     inputs:
       azureSubscription: ${{ parameters.azureServiceConnection }}
       resourceGroupName: ${{ parameters.resourceGroupName }}
-      csmFile: ${{ parameters.pathToInfrastructureDirectory }}/main.bicep
+      csmFile: ${{ parameters.pathToInfrastructureDirectory }}/main.json
       csmParametersFile: ${{ parameters.pathToInfrastructureDirectory }}/env/${{ parameters.environmentName }}.parameters.json
   - task: AzurePowerShell@5
     displayName: Setup Source Control link between Automation Account and Azure DevOps Git repo
