@@ -34,7 +34,6 @@ stages:
                 pathToInfrastructureDirectory: ${{ variables.pathToInfrastructureDirectory }}
                 adoAccountName: ${{ variables.adoAccountName }}
                 adoRepositoryName: ${{ variables.adoRepositoryName }}
-                pathToRunbooksDirectory: ${{ variables.pathToRunbooksDirectory }}
                 adoPat: $(AdoPat)
                 pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}
             - template: deploy-runbooks.yml
@@ -59,7 +58,6 @@ stages:
                 pathToInfrastructureDirectory: ${{ variables.pathToInfrastructureDirectory }}
                 adoAccountName: ${{ variables.adoAccountName }}
                 adoRepositoryName: ${{ variables.adoRepositoryName }}
-                pathToRunbooksDirectory: ${{ variables.pathToRunbooksDirectory }}
                 adoPat: $(AdoPat)
                 pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}
             - template: deploy-runbooks.yml
@@ -84,7 +82,6 @@ stages:
                 pathToInfrastructureDirectory: ${{ variables.pathToInfrastructureDirectory }}
                 adoAccountName: ${{ variables.adoAccountName }}
                 adoRepositoryName: ${{ variables.adoRepositoryName }}
-                pathToRunbooksDirectory: ${{ variables.pathToRunbooksDirectory }}
                 adoPat: $(AdoPat)
                 pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}
             - template: deploy-runbooks.yml

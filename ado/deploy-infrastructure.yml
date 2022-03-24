@@ -5,7 +5,6 @@ parameters:
   - name: pathToInfrastructureDirectory
   - name: adoAccountName
   - name: adoRepositoryName
-  - name: pathToRunbooksDirectory
   - name: adoPat
   - name: pathToAdoDirectory
 
@@ -39,5 +38,5 @@ steps:
         -ResourceGroupName ${{ parameters.resourceGroupName }}
         -AdoAccountName ${{ parameters.adoAccountName }}
         -RepositoryName ${{ parameters.adoRepositoryName }}
-        -PathToRunbooks ${{ parameters.pathToRunbooksDirectory }}
+        -PathToRunbooks 'runbooks'
         -AdoPat ${{ parameters.adoPat }}
