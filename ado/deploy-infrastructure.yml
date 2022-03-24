@@ -15,7 +15,7 @@ steps:
   - task: AzureCLI@2
     displayName: Compile Bicep to ARM
     inputs:
-      azureSubscription: ${{ parameters.azureServiceConnecdtion }}
+      azureSubscription: ${{ parameters.azureServiceConnection }}
       scriptType: ps
       inlineScript:  |
         az bicep build -f ${{ parameters.pathToInfrastructureDirectory }}/main.bicep
