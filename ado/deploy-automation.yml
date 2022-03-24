@@ -61,6 +61,7 @@ stages:
                 adoRepositoryName: ${{ variables.adoRepositoryName }}
                 pathToRunbooksDirectory: ${{ variables.pathToRunbooksDirectory }}
                 adoPat: $(AdoPat)
+                pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}
             - template: deploy-runbooks.yml
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
@@ -85,6 +86,7 @@ stages:
                 adoRepositoryName: ${{ variables.adoRepositoryName }}
                 pathToRunbooksDirectory: ${{ variables.pathToRunbooksDirectory }}
                 adoPat: $(AdoPat)
+                pathToAdoDirectory: ${{ variables.pathToAdoDirectory }}
             - template: deploy-runbooks.yml
               parameters:
                 azureServiceConnection: ${{ variables.serviceConnectionName }}
