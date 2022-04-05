@@ -14,4 +14,4 @@
 #> 
 
 
-Write-Output "Hello World!"
+Write-Output "Goodbye, Hello World!"
