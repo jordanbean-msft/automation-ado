@@ -20,11 +20,20 @@ module managedIdentityDeployment 'managed-identities.bicep' = {
   }
 }
 
+module loggingDeployment 'logging.bicep' = {
+  name: 'logging-deployment'
+  params: {
+    location: location
+    logAnalyticsWorkspaceName: names.outputs.logAnalyticsWorkspaceName
+  }
+}
+
 module automationAccountDeployment 'automation.bicep' = {
   name: 'automation-account-deployment'
   params: {
     automationAccountName: names.outputs.automationAccountName
     location: location
     managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
   }
 }
