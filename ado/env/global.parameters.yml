@@ -1,7 +1,7 @@
 variables:
   System.Debug: true
   adoAccountName: jordanbean-msft-demo-org
-  serviceConnectionName: jordanbean-aia
-  subscriptionId: dcf66641-6312-4ee1-b296-723bb0a999ba
-  tenantId: 72f988bf-86f1-41af-91ab-2d7cd011db47
+  serviceConnectionName: jordan-bean-demo-subscription
+  subscriptionId: cfa014c2-6565-444f-8241-b3edd39a2a44
+  tenantId: 4abfaf16-9535-4531-85a9-c85268607bae
   adoRepositoryName: automation-ado

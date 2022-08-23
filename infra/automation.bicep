@@ -43,7 +43,7 @@ resource automationAccountLinkedWorkspace 'Microsoft.OperationalInsights/workspa
   }
 }
 
-resource diagnosticSettings 'Microsoft.Automation/automationAccounts/providers/diagnosticSettings@2017-05-01-preview' = {
+resource diagnosticSettings 'Microsoft.Automation/automationAccounts/providers/diagnosticSettings@2021-05-01-preview' = {
   name: '${automationAccount.name}/Microsoft.Insights/${automationAccountLinkedWorkspaceName}'
   location: location
   properties: {

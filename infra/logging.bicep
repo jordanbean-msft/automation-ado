@@ -6,7 +6,7 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2020-08-01' = {
   location: location
   properties: {
     sku: {
-      name: 'PerGB2018'
+      name: 'Standard'
     }
   }
 }
